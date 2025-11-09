@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - e-Gram Panchayat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #48ad76, #348b67, #035c46);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .heading {
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 10px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #ff6a00, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .carousel-container {
+            flex: 1 1 400px;
+            max-width: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-container:hover {
+            transform: scale(1.02);
+        }
+
+        .carousel-inner img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+            max-width: 700px;
+            background: rgba(0,0,0,0.6);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: justify;
+            border-left: 5px solid #ffcc00;
+            border-top: 5px solid #ff6a00;
+        }
+
+        .about-text h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6a00, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff6a00, #ffcc00);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(45deg, #ffcc00, #ff6a00);
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .carousel-inner img {
+                height: 300px;
+            }
+
+            .about-text {
+                font-size: 16px;
+            }
+
+            .heading {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">ABOUT US</div>
+
+    <div class="about-container">
+        <!-- Carousel Section -->
+        <div class="carousel-container">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/slide1.jpg" class="d-block w-100" alt="Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide2.jpg" class="d-block w-100" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide3.jpg" class="d-block w-100" alt="Slide 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide4.jpg" class="d-block w-100" alt="Slide 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide5.jpg" class="d-block w-100" alt="Slide 5">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- About Text Section -->
+        <div class="about-text">
+            <h2>Digital Panchayat</h2>
+            <p>
+                The Commissioner Panchayati Raj and Rural Development has initiated Digital Panchayat, a flagship G2C project, 
+                for computerization and online issuance of citizen-centric certificates. After a detailed system study by NIC, 
+                the department prioritized the applications to be automated for gram panchayats. The application areas include:
+            </p>
+            <ul>
+                <li>Birth & Death Registrations</li>
+                <li>House Tax Demand Collections</li>
+                <li>Trade Licenses, Property Valuation, Mutations</li>
+                <li>Water Tap Connections, NOCs, Building Permissions, Layout Permissions</li>
+                <li>MNREGA Management and Reporting</li>
+            </ul>
+            <p>
+                These applications provide an end-to-end solution for all Gram Panchayats in the state. 
+                The software facilitates certificate generation, payment gateway for citizens, eSign facility for panchayat functionaries, 
+                SMS and email alerts. The computerization of all three tiers of PRIs, i.e., Zilla Praja Parishad, Mandal Praja Parishad (Block), 
+                and Gram Panchayats is also in place.
+            </p>
+
+            <!-- Back Button -->
+            <a href="index.php" class="back-btn">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

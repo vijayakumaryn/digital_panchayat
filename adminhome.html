@@ -1,0 +1,94 @@
+<?php
+session_start();
+
+// Check if the admin is logged in
+if (!isset($_SESSION['admin'])) {
+    header("Location: admin_login.html");
+    exit();
+} 
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gram Panchayat Admin Home</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('images/comp1.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    h1 {
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+      font-size: 36px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .menu {
+       color:blue;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .menu a {
+      color: red;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .menu a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .content {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gram Panchayat Admin Home</h1>
+    <div class="menu">
+      <a href="#">registered users</a>
+      <a href="admin_complaints.php">complaints check</a>
+      <a href="#">Projects</a>
+      <a href="#">Budget</a>
+      <a href="#">Reports</a>
+    </div>
+  </div>
+  <div class="content">
+    <h2>Welcome, Admin!</h2>
+    <p>On this admin home page, you can access various features and manage the Gram Panchayat effectively.</p>
+    <p>Please use the navigation menu above to navigate to different sections:</p>
+    <ul>
+      <li><strong>Dashboard:</strong> View an overview of the Gram Panchayat's activities, statistics, and upcoming events.</li>
+      <li><strong>Members:</strong> Manage the members of the Gram Panchayat, including adding new members and updating their information.</li>
+      <li><strong>Projects:</strong> Create, update, and track the progress of various projects undertaken by the Gram Panchayat.</li>
+      <li><strong>Budget:</strong> Monitor and manage the budget allocated for different initiatives and projects.</li>
+      <li><strong>Reports:</strong> Generate reports and access important data related to the Gram Panchayat's operations.</li>
+    </ul>
+  </div>
+</body>
+</html>

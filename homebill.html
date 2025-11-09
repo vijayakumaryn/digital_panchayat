@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Tax Bill Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('images/im12.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      animation: bgAnimate 20s linear infinite;
+    }
+
+    @keyframes bgAnimate {
+      0% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(30deg); }
+      100% { filter: hue-rotate(0deg); }
+    }
+
+    h1 { text-align: center; color: #fffc00; font-size: 36px; margin-bottom: 30px; text-shadow: 2px 2px 12px rgba(0,0,0,0.7); }
+
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 450px;
+      border: 2px solid rgba(0,255,255,0.5);
+      animation: glowBorder 2s infinite alternate;
+    }
+
+    @keyframes glowBorder {
+      0% { border-color: rgba(0,255,255,0.5); }
+      50% { border-color: rgba(255,255,0,0.7); }
+      100% { border-color: rgba(0,255,255,0.5); }
+    }
+
+    .form-group { margin-bottom: 20px; position: relative; }
+
+    .form-group input, .form-group select {
+      width: 100%; padding: 12px 15px; border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.5); background: rgba(255,255,255,0.1);
+      color: #fff; font-size: 16px; transition: all 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none; border-color: #00ffff; box-shadow: 0 0 10px rgba(0,255,255,0.7); background: rgba(255,255,255,0.2);
+    }
+
+    label {
+      position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+      color: rgba(255,255,255,0.7); pointer-events: none; transition: all 0.3s ease;
+      background: rgba(0,0,0,0.3); padding: 0 5px; border-radius: 5px;
+    }
+
+    input:focus + label, input:not(:placeholder-shown) + label,
+    select:focus + label, select:not([value=""]) + label {
+      top: -10px; left: 10px; font-size: 14px; color: #00ffff;
+    }
+
+    .payment-button, .view-button {
+      width: 100%; padding: 12px; border: none; border-radius: 15px;
+      color: #fff; font-size: 18px; font-weight: 700; cursor: pointer;
+      transition: all 0.3s ease; margin-top: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .payment-button {
+      background: linear-gradient(90deg, #00f, #0ff, #00f);
+    }
+    .payment-button:hover {
+      background: linear-gradient(90deg, #0ff, #00f, #0ff);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,255,255,0.7);
+    }
+
+    .view-button {
+      background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    }
+    .view-button:hover {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255,75,75,0.7);
+    }
+
+    a.back-link { display: block; text-align: center; margin-top: 20px; font-size: 16px; color: #00ffff; text-decoration: none; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); transition: all 0.3s; }
+    a.back-link:hover { color: #ff0; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Home Tax Bill Payment</h1>
+    <form action="process_payment.php" method="post">
+      <div class="form-group">
+        <input type="text" id="property_id" name="property_id" placeholder=" " required>
+        <label for="property_id">Property ID</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" id="property_owner" name="property_owner" placeholder=" " required>
+        <label for="property_owner">Property Owner</label>
+      </div>
+
+      <div class="form-group">
+        <input type="number" id="payment_amount" name="payment_amount" placeholder=" " required>
+        <label for="payment_amount">Payment Amount</label>
+      </div>
+
+      <div class="form-group">
+        <select id="payment_method" name="payment_method" required>
+          <option value="" disabled selected>Select Payment Method</option>
+          <option value="online">Online Payment</option>
+          <option value="in_person">In-person Payment</option>
+          <option value="mail_in">Mail-in Payment</option>
+          <option value="direct_debit">Direct Debit</option>
+        </select>
+        <label for="payment_method">Payment Method</label>
+      </div>
+
+      <input type="submit" value="Pay Now" class="payment-button">
+    </form>
+
+    <!-- View Payments Button -->
+    <form action="payment_details.php" method="get">
+      <input type="submit" value="View My Payments" class="view-button">
+    </form>
+
+    <a href="services.php" class="back-link">← Back to Services</a>
+  </div>
+</body>
+</html>

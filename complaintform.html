@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaint Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2, #ff6a00, #ee0979);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .form-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            width: 500px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 2px solid #fff;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff512f, #dd2476, #24c6dc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(255,255,255,0.3);
+        }
+
+        label {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffdd57;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-family: Century, sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #232526, #414345);
+            resize: vertical;
+            margin-bottom: 20px;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.5);
+        }
+
+        /* Submit Button - Green Gradient */
+        #sub {
+            width: 150px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #56ab2f, #a8e063);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin: 10px;
+        }
+        #sub:hover {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            transform: scale(1.05);
+        }
+
+        /* Reset Button - Red/Orange Gradient */
+        #res {
+            width: 150px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin: 10px;
+        }
+        #res:hover {
+            background: linear-gradient(135deg, #f12711, #f5af19);
+            transform: scale(1.05);
+        }
+
+        /* View Complaints Button - Orange to Purple */
+        .btn {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin: 15px auto;
+            display: block;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #24c6dc, #514a9d);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        .btn-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ffdd57;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <form name="myform" method="post" action="complaint.php" onsubmit="return validateform()">
+            <h1>REGISTER COMPLAINTS</h1>
+            <label for="comp">Enter your complaint:</label>
+            <textarea id="comp" name="comp" rows="4" placeholder="Type your complaint here..."></textarea>
+
+            <div class="btn-row">
+                <input type="submit" id="sub" name="sub" value="SUBMIT">
+                <input type="reset" id="res" name="res" value="RESET">
+            </div>
+            <button type="button" class="btn" onclick="window.location.href='complaint.php'">VIEW COMPLAINTS</button>
+        </form>
+        <a href="index.php">⬅ Back to Home</a>
+    </div>
+
+<script>
+    function validateform() {
+        var comp = document.myform.comp.value;
+        if (comp == null || comp === "") {
+            alert("Enter a complaint");
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

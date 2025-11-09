@@ -1,0 +1,81 @@
+/* styles.css */
+
+/* Header styles */
+header {
+ background-image: url('images/imm8.jpg');
+  color: #000000;
+  padding: 10px;
+}
+
+/* Navigation styles */
+nav {
+  background-color: none;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: none;
+  text-decoration: none;
+  padding: 5px;
+}
+
+/* Main styles */
+main {
+  background-color:black;
+  padding: 20px;
+}
+
+/* Footer styles */
+footer {
+  background-color:Grey;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Home specific styles */
+.home-background {
+  background-image:background.jpg;
+  background-size: cover;
+  background-position: center;
+  height : 400px;
+}
+
+.home-heading {
+  color: none;
+  text-align: center;
+  padding: 100px;
+  font-size: 24px;
+}
+
+/* Services specific styles */
+.service {
+  background-color:#00b0ff;
+ width:30%;
+  padding: 0px;
+  margin-bottom: 2px;
+}
+
+/* Documents specific styles */
+.document {
+  background-color:none;
+  padding: 3px;
+  margin-bottom: 3px;
+}
+
+/* Contact specific styles */
+.contact {
+  background-color:none;
+  padding: 3px;
+  margin-bottom: 3px;
+}

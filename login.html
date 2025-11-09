@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>e-Gram Panchayat Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* ✅ Background image clearly visible */
+    background-image: url("images/slide4.jpg"), linear-gradient(135deg, rgba(255,126,95,0.25), rgba(254,180,123,0.25));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+.container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+h2 {
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 32px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+.error-msg {
+    color: #ff4444;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    display: none;
+}
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* ✅ Styled dropdown with custom arrow */
+.form-group select {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.6);
+    color: #0ff;
+    font-size: 16px;
+    font-weight: bold;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+}
+.form-group select:focus {
+    border-color: #00ffff;
+    background: rgba(0,0,0,0.8);
+    outline: none;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+.form-group select option {
+    background: #111;
+    font-weight: bold;
+}
+.form-group select option[value="User"] { color: #0f0; }
+.form-group select option[value="Admin"] { color: #ff0; }
+
+.form-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.form-group input:focus {
+    border-color: #00ffff;
+    background: rgba(255,255,255,0.3);
+    outline: none;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+.form-group button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #00f, #0ff);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.form-group button:hover {
+    background: linear-gradient(90deg, #0ff, #00f);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,255,255,0.6);
+}
+.form-group button.loading {
+    cursor: wait;
+    background: linear-gradient(90deg, #444, #888);
+}
+.links {
+    margin-top: 20px;
+    text-align: center;
+}
+.links a {
+    color: #00ffff;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.links a:hover {
+    color: #ff0;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+/* Simple fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- ✅ Logo inside the card -->
+    <img src="images/bg5.jpg" alt="e-Gram Panchayat Logo">
+    <h2>Login</h2>
+    <div class="error-msg" id="error-msg"></div>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="login_type">Login As:</label>
+            <select name="login_type" id="login_type" required>
+                <option value="">--Select--</option>
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="username">Username or Mobile Number</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username or mobile number" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <button type="submit" id="loginBtn">Login</button>
+        </div>
+    </form>
+    <div class="links">
+        <p>Not registered yet? <a href="register.html">Register here</a></p>
+        <p>Forgot password? <a href="forgot_password.html">Click here</a></p>
+    </div>
+</div>
+
+<noscript>
+    <p style="color:white; text-align:center; background:red; padding:10px; border-radius:10px;">
+        ⚠️ Please enable JavaScript to use the login system.
+    </p>
+</noscript>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault(); // prevent default form submission
+
+    const loginBtn = document.getElementById("loginBtn");
+    loginBtn.classList.add("loading");
+    loginBtn.textContent = "Logging in...";
+
+    const formData = new FormData(this);
+    fetch("login.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const errorDiv = document.getElementById("error-msg");
+        loginBtn.classList.remove("loading");
+        loginBtn.textContent = "Login";
+
+        if(data.status === "success") {
+            window.location.href = data.redirect;
+        } else {
+            errorDiv.style.display = "block";
+            errorDiv.textContent = data.message;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        loginBtn.classList.remove("loading");
+        loginBtn.textContent = "Login";
+    });
+});
+</script>
+</body>
+</html>

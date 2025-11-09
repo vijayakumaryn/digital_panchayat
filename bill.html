@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Home Tax Bill Payment</title>
+  <style>
+    body {
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #333333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin-top: 50px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    .payment-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .payment-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Home Tax Bill Payment</h1>
+
+  <div class="container">
+    <form action="process_payment.php" method="post">
+      <div class="form-group">
+        <label for="property_id">Property ID:</label>
+        <input type="text" id="property_id" name="property_id" required>
+      </div>
+
+      <div class="form-group">
+        <label for="payment_amount">Payment Amount:</label>
+        <input type="number" id="payment_amount" name="payment_amount" required>
+      </div>
+
+      <div class="form-group">
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method" required>
+          <option value="">Select</option>
+          <option value="online">Online Payment</option>
+          <option value="in_person">In-person Payment</option>
+          <option value="mail_in">Mail-in Payment</option>
+          <option value="direct_debit">Direct Debit</option>
+        </select>
+      </div>
+
+      <input type="submit" value="Pay Now" class="payment-button">
+    </form>
+  </div>
+</body>
+</html>

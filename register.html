@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Gram Panchayat - Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* Background image + gradient overlay */
+            background-image: 
+                linear-gradient(135deg, rgba(255, 106, 0,0.5), rgba(238, 9, 121,0.5), rgba(142,45,226,0.5), rgba(74,0,224,0.5)),
+                url('images/im10.jpg');
+            background-size: cover, cover;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
+            animation: bgAnimation 20s ease infinite alternate;
+        }
+
+        @keyframes bgAnimation {
+            0% {background-position: 0% 0%, center;}
+            50% {background-position: 100% 100%, center;}
+            100% {background-position: 0% 0%, center;}
+        }
+
+        .container {
+            background: rgba(0,0,0,0.5);
+            border-radius: 25px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Animated Logo */
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px auto;
+            background: url('images/admin14.jpg') no-repeat center/cover;
+            border-radius: 50%;
+            border: 3px solid #00ffff;
+            animation: bounce 2s infinite alternate, glow 1.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #00ffff; }
+            50% { box-shadow: 0 0 20px #ff0; }
+            100% { box-shadow: 0 0 10px #00ffff; }
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #00ffff;
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 0 10px rgba(0,255,255,0.6);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.5);
+            padding: 0 5px;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            font-size: 14px;
+            color: #00ffff;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(90deg, #ff6a00, #ee0979, #8e2de2);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .form-group button:hover {
+            background: linear-gradient(90deg, #8e2de2, #ee0979, #ff6a00);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,255,255,0.5);
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: #00ffff;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #ff0;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Animated Logo -->
+        <div class="logo"></div>
+
+        <h1>Registration Form</h1>
+        <form action="register.php" method="POST">
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder=" " pattern="[A-Za-z]+" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="mobile" name="mobile" placeholder=" " pattern="[0-9]{10}" maxlength="10" required>
+                <label for="mobile">Mobile Number</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="aadhar" name="aadhar" placeholder=" " pattern="[0-9]{12}" maxlength="12" required>
+                <label for="aadhar">Aadhar Number</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="state" name="state" placeholder=" " pattern="[A-Za-z]+" required>
+                <label for="state">State</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="town" name="town" placeholder=" " pattern="[A-Za-z]+" required>
+                <label for="town">Town</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="village" name="village" placeholder=" " pattern="[A-Za-z]+" required>
+                <label for="village">Village</label>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <div class="links">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>

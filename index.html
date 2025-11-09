@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>e-Gram Panchayat</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 style="color: yellow;" align="center" font-style="italic">Welcome to e-Gram Panchayat</h1>
+    <p align="center">Welcome to the online platform for our Gram Panchayat. Access various services and information conveniently.</p>
+    <nav>
+      <ul style="font-style: italic; font-size: 16px; color: #FF0000;">
+        <li style="color: #00ff00;"><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="documents.html">Documents</a></li>
+        <li><a href="aboutus.html">About us</a></li>
+        <li><a href="complaintform.html">Complaints</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="button" align="center">
+        <?php
+        session_start();
+
+        if (isset($_SESSION['username'])) {
+          // User is logged in, display the username and logout button
+          echo "Logged in as: " . $_SESSION['username'];
+          echo '<button><a href="logout.php">Logout</a></button>';
+        } else {
+          // User is not logged in, display the Sign Up and Login buttons
+          echo '<button><a href="register.html">Sign Up</a></button>';
+          echo '<button><a href="login.html">Login</a></button>';
+        }
+        ?>
+      </div>
+    </nav>
+  </header>
+  <style>
+    main {
+      background-image: url('images/slide1.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+   
+    .container {
+      max-width: 0px;
+      margin: 0 auto;
+      padding: 0px;
+      text-align: center;
+    }
+   
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+   
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <main>
+    <section>
+      <marquee direction="right" scrollamount="20">
+        <h2 style="color: blue;" align="center">
+          <p>Stay updated with the latest announcements and developments in our village.</p>
+        </h2>
+      </marquee>
+    </section>
+
+    <div class="service">
+      <h3>
+        <a href="https://swachhamevajayate.org/" target="_blank">ಗ್ರಾಮೀಣ ಕುಡಿಯುವ ನೀರು ಮತ್ತು ನೈರ್ಮಲ್ಯ ಇಲಾಖೆ</a>
+      </h3>
+    </div>
+    <div class="service">
+      <h3><a href="schemes.html">Schemes</a></h3>
+    </div>
+    <div class="service">
+      <h3><a href="https://rdpr.karnataka.gov.in/info-2/Rural+Connectivity/Rural+Development/kn">ಗ್ರಾಮೀಣ ಅಭಿವೃದ್ಧಿ</a></h3>
+    </div>
+    <div class="service">
+      <h3><a href="https://rdpr.karnataka.gov.in/info-2/Swachh+Bharat+Mission+(Rural)/kn">ಸ್ವಚ್ಛ ಭಾರತ ಮಿಷನ್‌ (ಗ್ರಾಮೀಣ)</a></h3>
+    </div>
+    <div class="service">
+      <h3><a href="https://rdpr.karnataka.gov.in/info-1/About+Us/kn">ನಮ್ಮ ಬಗ್ಗೆ</a></h3>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 e-Gram Panchayat. All rights reserved.</p>
+  </footer>
+</body>
+</html>
